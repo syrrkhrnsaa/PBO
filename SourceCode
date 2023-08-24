@@ -1,0 +1,32 @@
+java -version //hasil dari run ini adalah menunjukkan versi java yang di pake di windows
+
+public class Welcome {
+
+    public static void main(String[] args)
+	{
+		String greeting = "welcome to core java!";
+		System.out.println(greeting);
+		for (int i = 0; 1 < greeting.length(); i++)
+		System.out.print("=");
+		System.out.println();
+	}
+} //hasil dari program ini setelah di run adalah muncul bacaan "welcome to core java!" serta banyak tanda "=" di bawah nya
+
+public class Soalsatu {
+
+    public static void main(String[] args) {
+		byte angka1= 125;
+		byte angka2 = 6;
+		byte hasil = (byte) (angka1+angka2);
+		System.out.println("Hasil 1"+hasil);
+	}
+} //hasil dari program ini adalah "hasil 1-125"
+
+public class Soal2 {
+
+    public static void main(String[] args) {
+		int i = 42;
+		String s = (i<40)?"life":(i>50)?"universe":"everything";
+		System.out.println(s);
+	}
+} //hasil dari program tersebut adalah "everything"
