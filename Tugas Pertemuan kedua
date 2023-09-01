@@ -1,3 +1,6 @@
+//Java doc
+
+
 //tugas 1
 public class Soalpertama {
 
@@ -79,3 +82,33 @@ public class ConvertDataType {
 }
 
 //tugas5
+
+public class StringOperations {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Membaca input string A
+        String A = scanner.nextLine();
+
+        // Membaca input string B
+        String B = scanner.nextLine();
+
+        // Langkah 1: Menghitung jumlah panjang A dan B
+        int totalLength = A.length() + B.length();
+
+        // Langkah 2: Menentukan apakah A lebih besar secara leksikografis daripada B
+        String result = A.compareTo(B) > 0 ? "Yes" : "No";
+
+        // Langkah 3: Mengkapitalisasi huruf pertama A dan B
+        A = A.substring(0, 1).toUpperCase() + A.substring(1);
+        B = B.substring(0, 1).toUpperCase() + B.substring(1);
+
+        // Mencetak hasil
+        System.out.println(totalLength);
+        System.out.println(result);
+        System.out.println(A + " " + B);
+
+        scanner.close();
+    }
+}
+
