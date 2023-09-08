@@ -1,0 +1,226 @@
+// TUGAS 1
+public class Tokenizer {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Membaca input string
+        String input = scanner.nextLine();
+
+        // Membuat pola regex untuk mencocokkan token (kata berurutan dalam huruf)
+        Pattern pattern = Pattern.compile("[A-Za-z]+");
+        Matcher matcher = pattern.matcher(input);
+
+        int count = 0;
+
+        // Menghitung jumlah total token dan mencetaknya di atas
+        while (matcher.find()) {
+            count++;
+        }
+
+        System.out.println(count);
+
+        // Mengatur ulang matcher untuk mencetak token kembali
+        matcher.reset();
+
+        // Mencetak setiap token yang cocok
+        while (matcher.find()) {
+            System.out.println(matcher.group());
+        }
+
+        scanner.close();
+    }
+}
+
+//TUGAS 2
+public class FormatOutput {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Membaca input hingga akhir file
+        while (scanner.hasNext()) {
+            String str = scanner.next();
+            int num = scanner.nextInt();
+
+            // Menggunakan printf untuk mencetak output yang diformat
+            System.out.printf("%-15s%03d%n", str, num);
+        }
+
+        scanner.close();
+    }
+}
+
+//TUGAS 3
+public class Berhitung {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Membaca input A, operator, dan B
+        int A = scanner.nextInt();
+        String operator = scanner.next();
+        int B = scanner.nextInt();
+
+        // Melakukan operasi matematika sesuai dengan operator
+        int result = 0;
+        switch (operator) {
+            case "+":
+                result = A + B;
+                break;
+            case "-":
+                result = A - B;
+                break;
+            case "*":
+                result = A * B;
+                break;
+            case "/":
+                result = A / B;
+                break;
+            case "%":
+                result = A % B;
+                break;
+            default:
+                System.out.println("Operator tidak valid.");
+                break;
+        }
+
+        // Mencetak hasil operasi
+        System.out.println(result);
+
+        scanner.close();
+    }
+}
+
+//TUGAS 4
+public class GajiAgent {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        // Input jumlah penjualan bulan ini
+        System.out.print("Masukkan jumlah penjualan bulan ini: ");
+        int totalPenjualan = input.nextInt();
+        
+        // Harga setiap item
+        int hargaPerItem = 50000;
+        
+        // Gaji pokok
+        int gajiPokok = 500000;
+        
+        // Batas penjualan untuk mendapatkan bonus
+        int batasMinimalPenjualan = 40;
+        int batasMaksimalPenjualan = 80;
+        
+        // Persentase bonus
+        double bonus10Persen = 0.10;
+        double bonus25Persen = 0.25;
+        double bonus35Persen = 0.35;
+        
+        // Menghitung bonus berdasarkan jumlah penjualan
+        double bonus = 0;
+        if (totalPenjualan >= batasMinimalPenjualan && totalPenjualan <= batasMaksimalPenjualan) {
+            bonus = totalPenjualan * hargaPerItem * bonus25Persen;
+        } else if (totalPenjualan > batasMaksimalPenjualan) {
+            bonus = totalPenjualan * hargaPerItem * bonus35Persen;
+        } else {
+            bonus = totalPenjualan * hargaPerItem * bonus10Persen;
+        }
+        
+        // Menghitung gaji akhir
+        int gajiAkhir = (int) (gajiPokok + bonus);
+        
+        // Output gaji akhir
+        System.out.println("Gaji yang diterima: " + gajiAkhir);
+        
+        input.close();
+    }
+}
+
+//TUGAS 5
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Masukkan plat nomor 4 mobil: ");
+        String platNumbers = input.nextLine();
+        input.close();
+
+        String[] platArray = platNumbers.split(" ");
+        int sum = 0;
+
+        for (String plat : platArray) {
+            int num = Integer.parseInt(plat);
+            sum += num;
+        }
+
+        if ((sum - 999999) % 5 != 0) {
+            System.out.println("Berhenti");
+        } else {
+            System.out.println("Jalan");
+        }
+    }
+
+//TUGAS 6
+      public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Membaca input string A
+        String A = scanner.nextLine();
+
+        // Membaca input string B
+        String B = scanner.nextLine();
+
+        // Langkah 1: Menghitung jumlah panjang A dan B
+        int totalLength = A.length() + B.length();
+
+        // Langkah 2: Menentukan apakah A lebih besar secara leksikografis daripada B
+        String result = A.compareTo(B) > 0 ? "Yes" : "No";
+
+        // Langkah 3: Mengkapitalisasi huruf pertama A dan B
+        A = A.substring(0, 1).toUpperCase() + A.substring(1);
+        B = B.substring(0, 1).toUpperCase() + B.substring(1);
+
+        // Mencetak hasil
+        System.out.println(totalLength);
+        System.out.println(result);
+        System.out.println(A + " " + B);
+
+        scanner.close();
+    }
+
+//TUGAS 7
+    public static void main(String[] args) {
+        // One Dimensional Arrays
+        int[] fisrtArray = {2, 5, 3};
+        int[] secondArray = {9, 5, 3};
+        int[] thirdArray = {2, 4, 9};
+        int[] fourthArray = {10, 11, 12};
+        int[] fifthArray = {13, 14, 15};
+        int[] sixthArray = {16, 17, 18};
+        int[] seventhArray = {19, 20, 21};
+        int[] eighthArray = {22, 23, 24};
+        int[] ninthArray = {25, 26, 27};
+        
+        // Two Dimensional Arrays
+        int[][] twoDimensionalArray1 = {fisrtArray, secondArray, thirdArray};
+        int[][] twoDimensionalArray2 = {fourthArray, fifthArray, sixthArray};
+        int[][] twoDimensionalArray3 = {seventhArray, eighthArray, ninthArray};
+        
+        // Three Dimensional Array
+        int[][][] threeDimensionalArray = {twoDimensionalArray1, twoDimensionalArray2, twoDimensionalArray3};
+        
+        // Print the three-dimensional array in the desired format
+        for (int[][] twoDimArray : threeDimensionalArray) {
+            System.out.print("{");
+            for (int[] array : twoDimArray) {
+                System.out.print("{");
+                for (int i = 0; i < array.length; i++) {
+                    System.out.print(array[i]);
+                    if (i < array.length - 1) {
+                        System.out.print(" ");
+                    }
+                }
+                System.out.print("}");
+            }
+            System.out.println("}");
+        }
+    }
