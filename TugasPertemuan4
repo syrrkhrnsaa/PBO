@@ -1,0 +1,113 @@
+//TUGAS 1
+public class Barang {
+    
+        String kode_barang;
+        String nama_barang;
+        private int stok;
+        
+        public Barang(String kode, String nama, int stk) {
+        kode_barang = kode;
+        nama_barang = nama;
+        stok = stk;
+        }
+        
+        public int getStok() {
+        return stok;
+        }
+        
+        public void tambahStok(int jumlah) {
+        if (jumlah > 0) {
+            stok += jumlah;
+        } 
+        else {
+            System.out.println("Jumlah penambahan stok harus positif.");
+            }
+        }
+}
+
+public class Inventori {
+
+    Barang[] barangs;
+    
+    void initBarang() {
+        barangs = new Barang[2];
+        barangs[0] = new Barang("001", "Baju", 10);
+        barangs[1] = new Barang("002", "Celana", 20);
+    }
+    void showBarang() {
+        System.out.println(barangs[0].nama_barang + "(" + barangs[0].getStok() + ")");
+        System.out.println(barangs[1].nama_barang + "(" + barangs[1].getStok() + ")");
+    }
+    void pengadaan() {
+    initBarang();
+    
+    barangs[0].tambahStok(20); // Menambah stok sebanyak 20
+    // barangs[0].tambahStok(-30); // Contoh jika jumlah penambahan negatif
+    showBarang();
+    }
+    public static void main(String[] args) {
+        Inventori beli = new Inventori();
+        beli.pengadaan();
+    }
+}
+
+//TUGAS 2
+public class UpinIpin {
+
+    public static void main(String[] args) {
+        Item item = new Item("ipin");
+    }
+    
+    
+}
+
+public class Item {
+    private String name;
+    private Item() {
+    name = "Ipin";
+    }
+    
+    public Item(String ItemName) {
+        name = ItemName;
+        System.out.println(this.name);
+    }
+}
+
+//TUGAS3
+public class KelasSatu {
+    {
+    System.out.println(11);
+    }
+    
+    static
+    {
+    System.out.println(2);
+    }
+    
+    public KelasSatu(int i)
+    {
+    System.out.println(3);
+    }
+    
+    public KelasSatu()
+    {
+    System.out.println(4);
+    }
+    
+}
+
+public class KelasDua {
+
+    {
+    System.out.println(5);
+    }
+    
+    public static void main(String[] args)
+    {
+    System.out.println(6);
+    KelasSatu satu = new KelasSatu();
+    KelasSatu dua = new KelasSatu(10);
+    }
+    
+    
+}
